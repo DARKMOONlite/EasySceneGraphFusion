@@ -2,7 +2,7 @@
 
 ## Setup and commands
 
-- This is a Python package targeting Python 3.8+. Install it from the repository root with:
+- This is a Python package targeting Python 3.13+. Install it from the repository root with:
   ```bash
   pip install .
   ```

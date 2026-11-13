@@ -1,8 +1,14 @@
-# EasySceneGraphFusion
-A project for creating, fusing and manipulating scene graphs,  
+<div align="center">
 
+# EasySceneGraphFusion
+
+**A project for creating, fusing and manipulating scene graphs**
+
+ [Paper]() | [Arxiv]() 
 
 This package is an open-set/open-vocabulary scene graph fusion package for fusing multiple scene graphs together. The goal of this was to improve current scene graph generation processes through two distinct methods
+
+</div>
 
 - Fuse dissimilar scene graphs to capture more contextual information about a scene.
 - Fuse similar scene graphs together to improve accuracy and reliability of the resultant scene graph. 
@@ -28,16 +34,25 @@ pip install .
 
 ## Usage
 
-view the [**cli**] folder for scripts on how to use this package
-
+view the `cli` folder for scripts on how to use this package
 
 ### Fusion
-
+Fuse a selection of scene graphs together, can deal with dissimilar vocabularies, by using the `natual language toolkit` and a knowledge graph, to link likely misclassifications. 
 ```bash
 python3 scene_graph_project/cli/fuse.py \
   {any number of folders} \
   -o {output folder}
 ```
+
+### Stabalisation
+Track entities across consecutive scene graphs and save one compressed graph
+```bash
+python3 EasySceneGraphFusion/cli/stabalise.py \
+ $GRAPHS path/to/graphs
+ --images path/to/images \
+ --o {output folder} 
+```
+
 
 ### Stabalise Nuscenes 
 > [!NOTE]
@@ -79,4 +94,6 @@ compatibility imports.
    - [VIZOR](https://vivekmadhavaram.github.io/vizor/)
    - [Vil3DRel](https://arxiv.org/pdf/2211.09646)
 
+#### Improve pereformance with 100s of entities and 1000s of predicates.
 
+####
