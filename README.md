@@ -83,17 +83,23 @@ python3 scene_graph_project/cli/view.py {scene graph path}
 The former `scene_graph_project.scene_graph_fusion` paths remain as
 compatibility imports.
 
-## Interesting Links
-[**Scallop Interpreting over Graphs**](https://www.scallop-lang.org/log22/slides/log-2022-tutorial-scallop-part.pdf)
 
 
 ## TODO
 
 #### - Conversion of Ego-centric, Allo-centric and Exo-centric scene graphs.
-   - [VLM-Grounder](https://github.com/InternRobotics/VLM-Grounder)
-   - [VIZOR](https://vivekmadhavaram.github.io/vizor/)
-   - [Vil3DRel](https://arxiv.org/pdf/2211.09646)
+- [VLM-Grounder](https://github.com/InternRobotics/VLM-Grounder)
+- [VIZOR](https://vivekmadhavaram.github.io/vizor/)
+- [Vil3DRel](https://arxiv.org/pdf/2211.09646)
 
-#### Improve pereformance with 100s of entities and 1000s of predicates.
 
-####
+#### Improve stabalisation performance with 100s of entities and 1000s of predicates.
+- take inspiration from relateanything, and do simple geometric matching, where the size of the objects and the distance between them are taken into account, and predicates are considered for hungarian matching when the chance that they could be the same relationship is similar. the goal is to break up one large comparison `N(N-1)` to a bunch of smaller `n(n-1)` comparisons.  
+- Perhaps add more tightly integrated gpu support, so that instead of doing maths on the cpu, we pass it to the gpu and do it all in parallel.
+#### incorporate a DL based method for aligning scene graph vocaularies
+- give options for people, or in cases where the traditional symbolic approach doesn't work very well.
+#### develop a way to specify a target predicate and object vocabulary which all input scene graphs are mapped to.
+- goal is to instead of mapping scene graphs to each other, instead we map them all to a predefined vocabulary, entities and predicates that are too dissimilar are dropped. 
+#### Make this work with graphs from other libraries such as `networkx` or `networkit`
+- would allow for easier onboarding, and easily done with a simple class method to convert other graphs into one of these graphs, and then back again at the end. 
+
